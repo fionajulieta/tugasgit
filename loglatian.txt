@@ -1,0 +1,132 @@
+f31fl@FELI MINGW64 ~
+$ cd learn_git_again
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        first.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git add .
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git commit -m "add first text"
+[main 1d63a71] add first text
+ 1 file changed, 1 insertion(+)
+ create mode 100644 first.txt
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git push -u origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 285 bytes | 285.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/fionajulieta/tugasgit.git
+   07face2..1d63a71  main -> main
+branch 'main' set up to track 'origin/main'.
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git checkout -b amazing_feature
+Switched to a new branch 'amazing_feature'
+
+f31fl@FELI MINGW64 ~/learn_git_again (amazing_feature)
+$ git status
+On branch amazing_feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        best.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+f31fl@FELI MINGW64 ~/learn_git_again (amazing_feature)
+$ git add .
+
+f31fl@FELI MINGW64 ~/learn_git_again (amazing_feature)
+$ git commit -m "added best.txt"
+[amazing_feature 9ec304a] added best.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 best.txt
+
+f31fl@FELI MINGW64 ~/learn_git_again (amazing_feature)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git log
+commit 1d63a711a0982978936c8289010ff6cbacb1ac70 (HEAD -> main, origin/main)
+Author: Fiona Julieta Errat <fionaerrat@gmail.com>
+Date:   Fri Oct 20 17:41:37 2023 +0700
+
+    add first text
+
+commit 07face2ef317a343fd7bd3aab528875f42412bd3
+Author: Fiona Julieta Errat <fionaerrat@gmail.com>
+Date:   Thu Oct 19 20:31:49 2023 +0700
+
+    removing third.txt
+
+commit a3f6312a55b300affc16609d4b044f0995400dd9
+Author: Fiona Julieta Errat <fionaerrat@gmail.com>
+Date:   Thu Oct 19 20:30:51 2023 +0700
+
+    adding fourth.txt
+
+commit 3ecbe7b5c65490b396456b6731d15b9dec0d9247
+Author: Fiona Julieta Errat <fionaerrat@gmail.com>
+Date:   Thu Oct 19 20:30:14 2023 +0700
+
+    adding third.txt
+(END)
+
+f31fl@FELI MINGW64 ~
+$ cd learn_git_again
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git merge amazing_feature
+Updating 1d63a71..9ec304a
+Fast-forward
+ best.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 best.txt
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git branch -D amazing_feature
+Deleted branch amazing_feature (was 9ec304a).
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 312 bytes | 312.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/fionajulieta/tugasgit.git
+   1d63a71..9ec304a  main -> main
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$ git log --oneline --decorate
+9ec304a (HEAD -> main, origin/main) added best.txt
+1d63a71 add first text
+07face2 removing third.txt
+a3f6312 adding fourth.txt
+3ecbe7b adding third.txt
+
+f31fl@FELI MINGW64 ~/learn_git_again (main)
+$
